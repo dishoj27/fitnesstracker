@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Sign Up</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+<div class="auth-box">
+
+
+    <div class="auth-design signup-design">
+
+        <div class="auth-logo">
+            ✦ FitTrack
+        </div>
+
+        <div class="auth-shape shape-one"></div>
+        <div class="auth-shape shape-two"></div>
+
+        <div class="auth-design-content">
+
+            <span>
+                START TODAY
+            </span>
+
+            <h1>
+                Build Your<br>
+                Stronger Self.
+            </h1>
+
+            <p>
+                Set goals, track workouts and
+                stay motivated every day.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="auth-form">
+
+        <div class="form-content signup-form">
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p class="form-subtitle">
+                Start your fitness journey with FitTrack.
+            </p>
+
+
+            <form onsubmit="registerUser(event)">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your full name"
+                    required>
+
+
+                <!-- AGE -->
+
+                <label>
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="signupAge"
+                    placeholder="Enter your age"
+                    min="13"
+                    max="100"
+                    required>
+
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        minlength="6"
+                        required>
+
+                    <button
+                        type="button"
+                        onclick="togglePassword('signupPassword')">
+                        👁
+                    </button>
+
+                </div>
+
+
+                <label>
+                    Fitness Goal
+                </label>
+
+                <select id="fitnessGoal" required>
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="Weight Loss">
+                        Weight Loss
+                    </option>
+
+                    <option value="Muscle Gain">
+                        Muscle Gain
+                    </option>
+
+                    <option value="Running">
+                        Improve Running
+                    </option>
+
+                    <option value="General Fitness">
+                        General Fitness
+                    </option>
+
+                </select>
+
+
+                <!-- ROLE -->
+
+                <!-- ROLE -->
+
+<label>
+    Account Role
+</label>
+
+<select id="userRole" required>
+
+    <option value="">
+        Select your role
+    </option>
+
+    <option value="user">
+        User
+    </option>
+
+    <option value="admin">
+        Admin
+    </option>
+
+</select>
+
+                <label class="checkbox-label terms">
+
+                    <input
+                        type="checkbox"
+                        required>
+
+                    I agree to the Terms & Conditions
+
+                </label>
+
+
+                <button
+                    type="submit"
+                    class="auth-button">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+
+            <p class="switch-auth">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Log In
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- ADMIN TOP NAVBAR -->
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+        <a href="admin-dashboard.html" class="active">
+            🏠
+            <span>Admin Dashboard</span>
+        </a>
+
+        <a href="#">
+            👥
+            <span>Manage Users</span>
+        </a>
+
+        <a href="#">
+            🏋️
+            <span>Manage Workouts</span>
+        </a>
+
+        <a href="#">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+        <a href="#">
+            📊
+            <span>Reports</span>
+        </a>
+
+        <a href="#">
+            🎯
+            <span>Manage Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ADMIN CONTENT -->
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+        <div>
+
+            <span class="dashboard-date">
+                ADMIN PANEL
+            </span>
+
+        </div>
+
+
+        <div class="profile-area">
+
+            <span id="adminUserName">
+                Admin
+            </span>
+
+            <div class="profile-circle"
+                 id="adminProfileLetter">
+                A
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- WELCOME -->
+
+    <section class="dashboard-welcome">
+
+        <div>
+
+            <span>
+                WELCOME ADMIN
+            </span>
+
+            <h1>
+                Admin Dashboard 👋
+            </h1>
+
+            <p>
+                Manage FitTrack users, workouts and fitness content.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMIN STATISTICS -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👥
+            </div>
+
+            <div>
+
+                <p>
+                    Total Users
+                </p>
+
+                <h2>
+                    0
+                </h2>
+
+                <small>
+                    Registered users
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏋️
+            </div>
+
+            <div>
+
+                <p>
+                    Workouts
+                </p>
+
+                <h2>
+                    0
+                </h2>
+
+                <small>
+                    Available workouts
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🥗
+            </div>
+
+            <div>
+
+                <p>
+                    Nutrition Plans
+                </p>
+
+                <h2>
+                    0
+                </h2>
+
+                <small>
+                    Available plans
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <div>
+
+                <p>
+                    Fitness Goals
+                </p>
+
+                <h2>
+                    0
+                </h2>
+
+                <small>
+                    Active goals
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMIN MANAGEMENT -->
+
+    <section class="dashboard-grid">
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span>
+                        USER MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Manage Users
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="workout-item">
+
+                <div class="workout-icon">
+                    👥
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>
+                        Users
+                    </h3>
+
+                    <p>
+                        View and manage registered users.
+                    </p>
+
+                </div>
+
+                <a href="#"
+                   class="small-button">
+                    Open
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span>
+                        WORKOUT MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Manage Workouts
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="workout-item">
+
+                <div class="workout-icon purple">
+                    🏋️
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>
+                        Workout Library
+                    </h3>
+
+                    <p>
+                        Add and manage workout programs.
+                    </p>
+
+                </div>
+
+                <a href="#"
+                   class="small-outline-button">
+                    Manage
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ADMIN QUICK ACTIONS -->
+
+    <section class="quick-section">
+
+        <div class="section-small-title">
+            ADMIN ACTIONS
+        </div>
+
+        <h2>
+            Manage FitTrack
+        </h2>
+
+
+        <div class="quick-grid">
+
+
+            <a href="#"
+               class="quick-card">
+
+                <span>👥</span>
+
+                <strong>
+                    Manage Users
+                </strong>
+
+                <p>
+                    View registered users
+                </p>
+
+            </a>
+
+
+            <a href="#"
+               class="quick-card">
+
+                <span>🏋️</span>
+
+                <strong>
+                    Manage Workouts
+                </strong>
+
+                <p>
+                    Add or update workouts
+                </p>
+
+            </a>
+
+
+            <a href="#"
+               class="quick-card">
+
+                <span>🥗</span>
+
+                <strong>
+                    Nutrition
+                </strong>
+
+                <p>
+                    Manage nutrition plans
+                </p>
+
+            </a>
+
+
+            <a href="#"
+               class="quick-card">
+
+                <span>📊</span>
+
+                <strong>
+                    Reports
+                </strong>
+
+                <p>
+                    View fitness reports
+                </p>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    const user = JSON.parse(
+        localStorage.getItem("fitTrackUser")
+    );
+
+
+    if (!user || user.role !== "admin") {
+
+        window.location.href = "login.html";
+
+    }
+    else {
+
+        document.getElementById("adminUserName").textContent =
+            user.name;
+
+        document.getElementById("adminProfileLetter").textContent =
+            user.name.charAt(0).toUpperCase();
+
+    }
+
+</script>
+
+
+</body>
+</html>

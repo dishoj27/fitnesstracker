@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Goals</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html">
+            📅
+            <span>Planner</span>
+        </a>
+
+        <a href="nutrition.html">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+        <a href="water.html">
+            💧
+            <span>Water</span>
+        </a>
+
+        <a href="progress.html">
+            📊
+            <span>Progress</span>
+        </a>
+
+        <a href="goals.html" class="active">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <span class="dashboard-date">
+            FITNESS GOALS
+        </span>
+
+    </header>
+
+
+    <section class="page-heading">
+
+        <span>
+            SET YOUR TARGETS
+        </span>
+
+        <h1>
+            My Fitness Goals
+        </h1>
+
+        <p>
+            Customize your daily fitness targets.
+        </p>
+
+    </section>
+
+
+    <section class="goals-grid">
+
+
+        <div class="goal-card">
+
+            <div class="goal-icon">
+                👟
+            </div>
+
+            <h3>
+                Daily Steps
+            </h3>
+
+            <p>
+                How many steps do you want to walk?
+            </p>
+
+            <input
+                type="number"
+                id="stepsGoal"
+                min="1000"
+                value="10000">
+
+            <span>
+                steps per day
+            </span>
+
+        </div>
+
+
+        <div class="goal-card">
+
+            <div class="goal-icon">
+                🔥
+            </div>
+
+            <h3>
+                Daily Calories
+            </h3>
+
+            <p>
+                Set your daily calorie target.
+            </p>
+
+            <input
+                type="number"
+                id="caloriesGoal"
+                min="100"
+                value="650">
+
+            <span>
+                kcal per day
+            </span>
+
+        </div>
+
+
+        <div class="goal-card">
+
+            <div class="goal-icon">
+                📍
+            </div>
+
+            <h3>
+                Daily Distance
+            </h3>
+
+            <p>
+                Set your daily distance target.
+            </p>
+
+            <input
+                type="number"
+                id="distanceGoal"
+                min="1"
+                step="0.1"
+                value="5">
+
+            <span>
+                km per day
+            </span>
+
+        </div>
+
+
+        <div class="goal-card">
+
+            <div class="goal-icon">
+                ⏱️
+            </div>
+
+            <h3>
+                Active Time
+            </h3>
+
+            <p>
+                Set your daily activity target.
+            </p>
+
+            <input
+                type="number"
+                id="activeTimeGoal"
+                min="10"
+                value="60">
+
+            <span>
+                minutes per day
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <div class="goal-actions">
+
+        <button
+            class="reset-button"
+            onclick="resetGoals()">
+
+            ↻ Reset All Goals
+
+        </button>
+
+
+        <button
+            class="save-button"
+            onclick="saveGoals()">
+
+            ✓ Save Goals
+
+        </button>
+
+    </div>
+
+
+    <div class="info-box">
+
+        💡 Set realistic targets and increase them
+        gradually as your fitness improves.
+
+    </div>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

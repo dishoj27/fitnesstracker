@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html" class="active">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+          🏋️
+           <span>Workouts</span>
+        </a>
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html">
+           📅
+           <span>Planner</span>
+         </a>
+
+        <a href="nutrition.html">
+           🥗
+           <span>Nutrition</span>
+         </a>
+
+        <a href="water.html">
+         💧
+          <span>Water</span>
+        </a>
+
+        <a href="progress.html">
+           📊
+           <span>Progress</span>
+        </a>
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+        <div>
+
+            <button
+                class="mobile-menu"
+                onclick="toggleSidebar()">
+                ☰
+            </button>
+
+            <span class="dashboard-date">
+                TODAY
+            </span>
+
+        </div>
+
+
+        <div class="profile-area">
+
+            <span id="dashboardUserName">
+                User
+            </span>
+
+            <div class="profile-circle"
+                 id="profileLetter">
+                U
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <section class="dashboard-welcome">
+
+        <div>
+
+            <span>
+                WELCOME BACK
+            </span>
+
+            <h1>
+                <span id="welcomeName">
+                    User
+                </span> 👋
+            </h1>
+
+            <p>
+                Here's your fitness activity for today.
+            </p>
+
+        </div>
+
+
+        <a href="timer.html"
+           class="start-workout-button">
+
+            ▶ Start Workout
+
+        </a>
+
+    </section>
+
+
+    <!-- STAT CARDS -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👟
+            </div>
+
+            <div>
+
+                <p>
+                    Steps
+                </p>
+
+                <h2 id="stepsValue">
+                    0
+                </h2>
+
+                <small id="stepsGoalText">
+                    of 10,000 daily goal
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <div>
+
+                <p>
+                    Calories
+                </p>
+
+                <h2 id="caloriesValue">
+                    0
+                </h2>
+
+                <small id="caloriesGoalText">
+                    kcal burned today
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📍
+            </div>
+
+            <div>
+
+                <p>
+                    Distance
+                </p>
+
+                <h2 id="distanceValue">
+                    0 km
+                </h2>
+
+                <small id="distanceGoalText">
+                    daily distance
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏱️
+            </div>
+
+            <div>
+
+                <p>
+                    Active Time
+                </p>
+
+                <h2 id="activeTimeValue">
+                    0 min
+                </h2>
+
+                <small id="activeTimeGoalText">
+                    active minutes today
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MIDDLE -->
+
+    <section class="dashboard-grid">
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span>
+                        DAILY ACTIVITY
+                    </span>
+
+                    <h2>
+                        Today's Goal
+                    </h2>
+
+                </div>
+
+                <strong id="goalPercent">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-circle"
+                 id="progressCircle">
+
+                <div class="circle-content">
+
+                    <strong id="circlePercent">
+                        0%
+                    </strong>
+
+                    <span>
+                        Complete
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="goal-details">
+
+                <div>
+                    <span>Steps</span>
+                    <strong id="stepsProgress">
+                        0 / 10,000
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Calories</span>
+                    <strong id="caloriesProgress">
+                        0 / 650 kcal
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Active Time</span>
+                    <strong id="timeProgress">
+                        0 / 60 min
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span>
+                        WORKOUT
+                    </span>
+
+                    <h2>
+                        Today's Workout
+                    </h2>
+
+                </div>
+
+                <a href="timer.html">
+                    View Timer
+                </a>
+
+            </div>
+
+
+            <div class="workout-item">
+
+                <div class="workout-icon">
+                    🏃
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>
+                        Morning Running
+                    </h3>
+
+                    <p>
+                        Running · 30 minutes
+                    </p>
+
+                    <small>
+                        🔥 280 kcal · 📍 3.5 km
+                    </small>
+
+                </div>
+
+                <a href="timer.html"
+                   class="small-button">
+                    Start
+                </a>
+
+            </div>
+
+
+            <div class="workout-item">
+
+                <div class="workout-icon purple">
+                    🏋️
+                </div>
+
+                <div class="workout-info">
+
+                    <h3>
+                        Strength Training
+                    </h3>
+
+                    <p>
+                        Full Body · 45 minutes
+                    </p>
+
+                    <small>
+                        🔥 350 kcal · 💪 Strength
+                    </small>
+
+                </div>
+
+                <a href="timer.html"
+                   class="small-outline-button">
+                    Plan
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <section class="quick-section">
+
+        <div class="section-small-title">
+            QUICK ACTIONS
+        </div>
+
+        <h2>
+            What would you like to do?
+        </h2>
+
+
+        <div class="quick-grid">
+
+            <a href="timer.html"
+               class="quick-card">
+
+                <span>⏱️</span>
+
+                <strong>
+                    Start Timer
+                </strong>
+
+                <p>
+                    Begin a workout session
+                </p>
+
+            </a>
+
+
+            <a href="goals.html"
+               class="quick-card">
+
+                <span>🎯</span>
+
+                <strong>
+                    Set Goals
+                </strong>
+
+                <p>
+                    Update your fitness targets
+                </p>
+
+            </a>
+
+
+            <a href="nutrition.html"
+               class="quick-card">
+
+                <span>🥗</span>
+
+                <strong>
+                    Add Meal
+                </strong>
+
+                <p>
+                    Track your nutrition
+                </p>
+
+            </a>
+
+
+            <a href="water.html"
+               class="quick-card">
+
+                <span>💧</span>
+
+                <strong>
+                    Add Water
+                </strong>
+
+                <p>
+                    Track your hydration
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

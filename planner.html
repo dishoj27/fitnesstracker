@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .planner-container {
+            margin-top: 30px;
+        }
+
+        .day-title {
+            margin-bottom: 20px;
+        }
+
+        .day-title span {
+            color: #15945a;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .day-title h2 {
+            margin-top: 8px;
+            font-size: 25px;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .plan-card {
+            background: white;
+            border: 1px solid #e1e8e4;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .plan-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .plan-content {
+            padding: 18px;
+        }
+
+        .plan-content h3 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+        .plan-content p {
+            color: #718096;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        .plan-time {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 7px 12px;
+            background: #e8f7f0;
+            color: #15945a;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .start-plan {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+            background: #15945a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 1000px) {
+            .plan-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .plan-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="dashboard-page">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html" class="active">
+            📅
+            <span>Planner</span>
+        </a>
+
+        <a href="nutrition.html">
+            🥗
+            <span>Nutrition</span>
+         </a>
+
+        <a href="water.html">
+            💧
+            <span>Water</span>
+        </a>
+
+        <a href="progress.html">
+            📊
+            <span>Progress</span>
+        </a>
+
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="dashboard-main">
+
+    <header class="dashboard-header">
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <span class="dashboard-date">
+            DAILY PLANNER
+        </span>
+
+    </header>
+
+
+    <section class="page-heading">
+
+        <span>PLAN YOUR DAY</span>
+
+        <h1>Daily Planner</h1>
+
+        <p>
+            Follow your workout and meal plan throughout the day.
+        </p>
+
+    </section>
+
+
+    <section class="planner-container">
+
+
+        <!-- MORNING -->
+
+        <div class="day-title">
+
+            <span>🌅 MORNING</span>
+
+            <h2>Start Your Day</h2>
+
+        </div>
+
+
+        <div class="plan-grid">
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80"
+                    alt="Morning running">
+
+                <div class="plan-content">
+
+                    <h3>Morning Run</h3>
+
+                    <p>
+                        Start your day with a light running session.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 6:30 AM · 30 min
+                    </span>
+
+                    <br>
+
+                    <a href="timer.html" class="start-plan">
+                        Start Workout
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthy breakfast">
+
+                <div class="plan-content">
+
+                    <h3>Healthy Breakfast</h3>
+
+                    <p>
+                        Have a protein-rich breakfast with fruits and healthy carbs.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 8:00 AM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=800&q=80"
+                    alt="Stretching">
+
+                <div class="plan-content">
+
+                    <h3>Morning Stretch</h3>
+
+                    <p>
+                        Spend a few minutes stretching and preparing your body.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 9:00 AM · 10 min
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AFTERNOON -->
+
+        <div class="day-title">
+
+            <span>☀️ AFTERNOON</span>
+
+            <h2>Stay Active</h2>
+
+        </div>
+
+
+        <div class="plan-grid">
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+                    alt="Strength training">
+
+                <div class="plan-content">
+
+                    <h3>Strength Training</h3>
+
+                    <p>
+                        Complete a full-body strength workout.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 12:30 PM · 45 min
+                    </span>
+
+                    <br>
+
+                    <a href="timer.html" class="start-plan">
+                        Start Workout
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthy lunch">
+
+                <div class="plan-content">
+
+                    <h3>Healthy Lunch</h3>
+
+                    <p>
+                        Include vegetables, protein and healthy carbohydrates.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 1:30 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80"
+                    alt="Gym workout">
+
+                <div class="plan-content">
+
+                    <h3>Gym Session</h3>
+
+                    <p>
+                        Complete your planned gym exercises.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 4:30 PM · 40 min
+                    </span>
+
+                    <br>
+
+                    <a href="timer.html" class="start-plan">
+                        Start Workout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVENING -->
+
+        <div class="day-title">
+
+            <span>🌙 EVENING</span>
+
+            <h2>Recover & Relax</h2>
+
+        </div>
+
+
+        <div class="plan-grid">
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+                    alt="Evening workout">
+
+                <div class="plan-content">
+
+                    <h3>Evening Workout</h3>
+
+                    <p>
+                        Do a light workout or walking session.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 6:00 PM · 30 min
+                    </span>
+
+                    <br>
+
+                    <a href="timer.html" class="start-plan">
+                        Start Workout
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=800&q=80"
+                    alt="Healthy dinner">
+
+                <div class="plan-content">
+
+                    <h3>Healthy Dinner</h3>
+
+                    <p>
+                        Have a balanced dinner with protein and vegetables.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 8:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="plan-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80"
+                    alt="Relaxation and stretching">
+
+                <div class="plan-content">
+
+                    <h3>Cool Down</h3>
+
+                    <p>
+                        Finish your day with light stretching and relaxation.
+                    </p>
+
+                    <span class="plan-time">
+                        ⏰ 9:00 PM · 15 min
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

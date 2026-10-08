@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+<div class="auth-box">
+
+
+    <div class="auth-design">
+
+        <div class="auth-logo">
+            ✦ FitTrack
+        </div>
+
+        <div class="auth-shape shape-one"></div>
+        <div class="auth-shape shape-two"></div>
+
+        <div class="auth-design-content">
+
+            <span>
+                FITNESS TRACKER
+            </span>
+
+            <h1>
+                Train Smart.<br>
+                Live Strong.
+            </h1>
+
+            <p>
+                Track your activity, set goals and
+                become a better version of yourself.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="auth-form">
+
+        <div class="form-content">
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p class="form-subtitle">
+                Log in to continue your fitness journey.
+            </p>
+
+
+            <form onsubmit="loginUser(event)">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required>
+
+                    <button
+                        type="button"
+                        onclick="togglePassword('loginPassword')">
+                        👁
+                    </button>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="checkbox-label">
+
+                        <input type="checkbox" id="rememberMe">
+
+                        Remember me
+
+                    </label>
+
+                    <a href="#" onclick="forgotPassword()">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-button">
+
+                    Log In
+
+                </button>
+
+            </form>
+
+
+            <div class="or-line">
+                <span>OR</span>
+            </div>
+
+
+            <button
+                class="google-button"
+                onclick="googleLogin()">
+
+                Continue with Google
+
+            </button>
+
+
+            <p class="switch-auth">
+
+                Don't have an account?
+
+                <a href="signup.html">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

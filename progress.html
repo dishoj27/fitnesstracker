@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Progress</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html">
+            📅
+            <span>Planner</span>
+        </a>
+
+        <a href="nutrition.html">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+        <a href="water.html">
+            💧
+            <span>Water</span>
+        </a>
+
+        <a href="progress.html" class="active">
+            📊
+            <span>Progress</span>
+        </a>
+
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+        <div>
+
+            <button
+                class="mobile-menu"
+                onclick="toggleSidebar()">
+                ☰
+            </button>
+
+            <span class="dashboard-date">
+                PROGRESS
+            </span>
+
+        </div>
+
+
+        <div class="profile-area">
+
+            <span id="dashboardUserName">
+                User
+            </span>
+
+            <div class="profile-circle"
+                 id="profileLetter">
+                U
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE HEADING -->
+
+    <section class="page-heading">
+
+        <span>
+            FITNESS PROGRESS
+        </span>
+
+        <h1>
+            Your Progress 📊
+        </h1>
+
+        <p>
+            Track your workout activity and daily fitness progress.
+        </p>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🏋️
+            </div>
+
+            <div>
+
+                <p>
+                    Workouts
+                </p>
+
+                <h2 id="totalWorkoutsValue">
+                    0
+                </h2>
+
+                <small>
+                    this week
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <div>
+
+                <p>
+                    Calories
+                </p>
+
+                <h2 id="totalCaloriesValue">
+                    0
+                </h2>
+
+                <small>
+                    kcal burned
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👟
+            </div>
+
+            <div>
+
+                <p>
+                    Steps
+                </p>
+
+                <h2 id="totalStepsValue">
+                    0
+                </h2>
+
+                <small>
+                    this week
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏱️
+            </div>
+
+            <div>
+
+                <p>
+                    Active Time
+                </p>
+
+                <h2 id="totalActiveTimeValue">
+                    0 min
+                </h2>
+
+                <small>
+                    this week
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKOUT GRAPH -->
+
+    <section class="dashboard-card progress-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    WEEKLY WORKOUT
+                </span>
+
+                <h2>
+                    Workout Completed Daily
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-box">
+
+            <canvas id="workoutChart"></canvas>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALORIES GRAPH -->
+
+    <section class="dashboard-card progress-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    DAILY CALORIES
+                </span>
+
+                <h2>
+                    Calories Burned
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-box">
+
+            <canvas id="calorieChart"></canvas>
+
+        </div>
+
+    </section>
+
+
+    <!-- STEPS GRAPH -->
+
+    <section class="dashboard-card progress-card">
+
+        <div class="card-heading">
+
+            <div>
+
+                <span>
+                    DAILY STEPS
+                </span>
+
+                <h2>
+                    Steps Completed
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-box">
+
+            <canvas id="stepsChart"></canvas>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+    /* =========================
+       WEEKLY DATA (built from
+       the workouts actually
+       logged via the timer)
+    ========================= */
+
+    const history =
+        getHistory();
+
+    const days = [];
+    const workoutData = [];
+    const calorieData = [];
+    const stepData = [];
+
+    let totalWorkouts = 0;
+    let totalCalories = 0;
+    let totalSteps = 0;
+    let totalActiveTime = 0;
+
+
+    for (let i = 6; i >= 0; i--) {
+
+        const d = new Date();
+
+        d.setDate(d.getDate() - i);
+
+        const dateKey =
+            d.toISOString().slice(0, 10);
+
+        const label =
+            d.toLocaleDateString(
+                "en-US",
+                { weekday: "short" }
+            );
+
+        days.push(label);
+
+
+        const entry =
+            history.find(function(h) {
+                return h.date === dateKey;
+            });
+
+
+        workoutData.push(entry ? entry.activeTime : 0);
+        calorieData.push(entry ? entry.calories : 0);
+        stepData.push(entry ? entry.steps : 0);
+
+
+        if (entry) {
+
+            totalWorkouts += entry.workouts;
+            totalCalories += entry.calories;
+            totalSteps += entry.steps;
+            totalActiveTime += entry.activeTime;
+
+        }
+
+    }
+
+
+    const totalWorkoutsEl =
+        document.getElementById("totalWorkoutsValue");
+
+    if (totalWorkoutsEl) {
+        totalWorkoutsEl.textContent = totalWorkouts;
+    }
+
+
+    const totalCaloriesEl =
+        document.getElementById("totalCaloriesValue");
+
+    if (totalCaloriesEl) {
+        totalCaloriesEl.textContent = totalCalories;
+    }
+
+
+    const totalStepsEl =
+        document.getElementById("totalStepsValue");
+
+    if (totalStepsEl) {
+        totalStepsEl.textContent = totalSteps.toLocaleString();
+    }
+
+
+    const totalActiveTimeEl =
+        document.getElementById("totalActiveTimeValue");
+
+    if (totalActiveTimeEl) {
+        totalActiveTimeEl.textContent = totalActiveTime + " min";
+    }
+
+
+    /* =========================
+       WORKOUT CHART
+    ========================= */
+
+    new Chart(
+        document.getElementById("workoutChart"),
+        {
+            type: "bar",
+
+            data: {
+
+                labels: days,
+
+                datasets: [{
+
+                    label: "Workout Minutes",
+
+                    data: workoutData,
+
+                    borderWidth: 1
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        title: {
+
+                            display: true,
+
+                            text: "Minutes"
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       CALORIE CHART
+    ========================= */
+
+    new Chart(
+        document.getElementById("calorieChart"),
+        {
+            type: "line",
+
+            data: {
+
+                labels: days,
+
+                datasets: [{
+
+                    label: "Calories Burned",
+
+                    data: calorieData,
+
+                    tension: 0.3,
+
+                    borderWidth: 3,
+
+                    fill: false
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        title: {
+
+                            display: true,
+
+                            text: "Calories"
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =========================
+       STEPS CHART
+    ========================= */
+
+    new Chart(
+        document.getElementById("stepsChart"),
+        {
+            type: "line",
+
+            data: {
+
+                labels: days,
+
+                datasets: [{
+
+                    label: "Steps",
+
+                    data: stepData,
+
+                    tension: 0.3,
+
+                    borderWidth: 3,
+
+                    fill: false
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                scales: {
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        title: {
+
+                            display: true,
+
+                            text: "Steps"
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Water</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        .water-container {
+            margin-top: 30px;
+        }
+
+
+        /* MAIN WATER CARD */
+
+        .water-main-card {
+
+            background: white;
+
+            border: 1px solid #e1e8e4;
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            margin-bottom: 35px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+
+        }
+
+
+        .water-main-content {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            align-items: center;
+
+        }
+
+
+        .water-main-card h2 {
+
+            margin-top: 0;
+
+            font-size: 28px;
+
+        }
+
+
+        .water-main-card p {
+
+            color: #718096;
+
+            line-height: 1.6;
+
+        }
+
+
+        .water-number {
+
+            font-size: 55px;
+
+            font-weight: bold;
+
+            color: #15945a;
+
+            margin: 15px 0;
+
+        }
+
+
+        .water-number span {
+
+            font-size: 20px;
+
+            color: #718096;
+
+        }
+
+
+        .water-image {
+
+            width: 100%;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+        }
+
+
+        /* SECTION */
+
+        .water-section {
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .water-section-title {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .water-section-title span {
+
+            color: #15945a;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .water-section-title h2 {
+
+            margin-top: 8px;
+
+        }
+
+
+        /* CARDS */
+
+        .water-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .water-card {
+
+            background: white;
+
+            border: 1px solid #e1e8e4;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        }
+
+
+        .water-card img {
+
+            width: 100%;
+
+            height: 180px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        .water-card-content {
+
+            padding: 20px;
+
+        }
+
+
+        .water-card-content h3 {
+
+            margin: 0 0 10px;
+
+            font-size: 20px;
+
+        }
+
+
+        .water-card-content p {
+
+            color: #718096;
+
+            line-height: 1.5;
+
+        }
+
+
+        .amount {
+
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 8px 13px;
+
+            background: #e8f7f0;
+
+            color: #15945a;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+            font-size: 13px;
+
+        }
+
+
+        /* CREATINE */
+
+        .creatine-card {
+
+            background: white;
+
+            border: 1px solid #e1e8e4;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+        }
+
+
+        .creatine-card img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+        }
+
+
+        .creatine-content {
+
+            padding: 25px;
+
+        }
+
+
+        .creatine-content h2 {
+
+            margin-top: 0;
+
+        }
+
+
+        .creatine-highlight {
+
+            background: #e8f7f0;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .creatine-highlight strong {
+
+            color: #15945a;
+
+            font-size: 20px;
+
+        }
+
+
+        /* SCHEDULE */
+
+        .water-schedule {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .schedule-card {
+
+            background: white;
+
+            border: 1px solid #e1e8e4;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+        }
+
+
+        .schedule-card h3 {
+
+            margin-top: 0;
+
+        }
+
+
+        .schedule-card p {
+
+            color: #718096;
+
+            line-height: 1.5;
+
+        }
+
+
+        .schedule-amount {
+
+            color: #15945a;
+
+            font-weight: bold;
+
+        }
+
+
+        /* NOTE */
+
+        .water-note {
+
+            background: #fff8e8;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .water-note strong {
+
+            color: #9a6b00;
+
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            .water-main-content {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .water-grid {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+            .water-schedule {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .water-grid,
+
+            .water-schedule {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .water-number {
+
+                font-size: 45px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+
+        <a href="planner.html">
+            📅
+            <span>Planner</span>
+        </a>
+
+
+        <a href="nutrition.html">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+
+        <a href="water.html" class="active">
+            💧
+            <span>Water</span>
+        </a>
+
+
+        <a href="progress.html">
+            📊
+            <span>Progress</span>
+        </a>
+
+
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+
+        <button onclick="logoutUser()">
+
+            ↪️
+
+            <span>
+                Logout
+            </span>
+
+        </button>
+
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN CONTENT -->
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()">
+
+            ☰
+
+        </button>
+
+
+        <span class="dashboard-date">
+
+            HYDRATION
+
+        </span>
+
+
+    </header>
+
+
+    <section class="page-heading">
+
+
+        <span>STAY HYDRATED</span>
+
+
+        <h1>
+            Water & Hydration
+        </h1>
+
+
+        <p>
+            Keep your body hydrated throughout the day and during workouts.
+        </p>
+
+
+    </section>
+
+
+    <section class="water-container">
+
+
+        <!-- DAILY WATER -->
+
+        <div class="water-main-card">
+
+
+            <div class="water-main-content">
+
+
+                <div>
+
+                    <h2>
+                        💧 Daily Water Intake
+                    </h2>
+
+
+                    <p>
+                        Water needs depend on body size, activity,
+                        climate and food intake.
+                    </p>
+
+
+                    <div class="water-number">
+
+                        2.7–3.7
+
+                        <span>
+                            L/day
+                        </span>
+
+                    </div>
+
+
+                    <p>
+
+                        This is a general adult adequate-intake
+                        reference for total water from food and beverages.
+                        People who exercise or live in hot conditions
+                        may need more.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <img
+                        class="water-image"
+                        src="https://images.unsplash.com/photo-1559839914-17aae19cec71?auto=format&fit=crop&w=900&q=80"
+                        alt="Drinking water">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- DAILY SCHEDULE -->
+
+        <section class="water-section">
+
+
+            <div class="water-section-title">
+
+                <span>💧 DAILY ROUTINE</span>
+
+                <h2>
+                    Simple Water Schedule
+                </h2>
+
+            </div>
+
+
+            <div class="water-schedule">
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        🌅 Morning
+                    </h3>
+
+                    <p>
+                        Drink water after waking up and with breakfast.
+                    </p>
+
+                    <span class="schedule-amount">
+                        300–500 ml
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        ☀️ Afternoon
+                    </h3>
+
+                    <p>
+                        Drink regularly with lunch and between meals.
+                    </p>
+
+                    <span class="schedule-amount">
+                        700–1000 ml
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        🏋️ Workout
+                    </h3>
+
+                    <p>
+                        Sip fluids during exercise, especially in hot conditions.
+                    </p>
+
+                    <span class="schedule-amount">
+                        According to thirst & sweat
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        🌙 Evening
+                    </h3>
+
+                    <p>
+                        Continue drinking as needed without forcing large amounts.
+                    </p>
+
+                    <span class="schedule-amount">
+                        500–750 ml
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKOUT HYDRATION -->
+
+        <section class="water-section">
+
+
+            <div class="water-section-title">
+
+                <span>🏋️ WORKOUT</span>
+
+                <h2>
+                    Hydration During Exercise
+                </h2>
+
+            </div>
+
+
+            <div class="water-grid">
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+                        alt="Person exercising">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            Before Workout
+                        </h3>
+
+                        <p>
+                            Start your workout normally hydrated.
+                            Avoid waiting until you are very thirsty.
+                        </p>
+
+                        <span class="amount">
+                            Drink before exercise
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80"
+                        alt="Runner drinking water">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            During Workout
+                        </h3>
+
+                        <p>
+                            Take regular small drinks.
+                            Your needs increase with heat and sweating.
+                        </p>
+
+                        <span class="amount">
+                            Sip regularly
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+                        alt="Gym workout">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            After Workout
+                        </h3>
+
+                        <p>
+                            Replace fluids lost through sweat and continue
+                            drinking normally after exercise.
+                        </p>
+
+                        <span class="amount">
+                            Rehydrate
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATINE -->
+
+        <section class="water-section">
+
+
+            <div class="water-section-title">
+
+                <span>⚡ CREATINE</span>
+
+                <h2>
+                    Creatine & Water
+                </h2>
+
+            </div>
+
+
+            <div class="creatine-card">
+
+
+                <img
+                    src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=80"
+                    alt="Fitness supplement">
+
+
+                <div class="creatine-content">
+
+
+                    <h2>
+                        How much creatine?
+                    </h2>
+
+
+                    <p>
+
+                        A typical maintenance amount for healthy adults
+                        is approximately <strong>3–5 g of creatine
+                        monohydrate per day</strong>.
+
+                    </p>
+
+
+                    <div class="creatine-highlight">
+
+                        <strong>
+                            3–5 g creatine/day
+                        </strong>
+
+
+                        <p>
+
+                            There is no scientifically established requirement
+                            to drink a special extra amount of water because
+                            you took creatine.
+
+                        </p>
+
+                    </div>
+
+
+                    <p>
+
+                        You can mix your creatine with a normal glass of water
+                        and continue your regular hydration throughout the day.
+                        Staying adequately hydrated is particularly important
+                        when exercising or training in hot conditions.
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CREATINE + WATER -->
+
+        <section class="water-section">
+
+
+            <div class="water-section-title">
+
+                <span>🥤 SIMPLE ROUTINE</span>
+
+                <h2>
+                    Taking Creatine With Water
+                </h2>
+
+            </div>
+
+
+            <div class="water-grid">
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80"
+                        alt="Glass of water">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            Step 1
+                        </h3>
+
+                        <p>
+                            Measure your usual daily creatine dose.
+                        </p>
+
+                        <span class="amount">
+                            3–5 g
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=800&q=80"
+                        alt="Water glass">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            Step 2
+                        </h3>
+
+                        <p>
+                            Mix it with a normal glass of water or another
+                            suitable drink.
+                        </p>
+
+                        <span class="amount">
+                            About 250–350 ml is convenient
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1538300342682-cf57afb97285?auto=format&fit=crop&w=800&q=80"
+                        alt="Person drinking water">
+
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            Step 3
+                        </h3>
+
+                        <p>
+                            Continue drinking water normally during the rest
+                            of the day.
+                        </p>
+
+                        <span class="amount">
+                            Stay hydrated
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="water-note">
+
+                <strong>
+                    ⚠️ Important:
+                </strong>
+
+                <p>
+
+                    The 250–350 ml amount shown here is simply a convenient
+                    amount of liquid for mixing a dose; it is not a required
+                    "creatine water" target. Your overall fluid needs depend
+                    on your body, activity, climate and other factors.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- HYDRATION TIPS -->
+
+        <section class="water-section">
+
+
+            <div class="water-section-title">
+
+                <span>💡 TIPS</span>
+
+                <h2>
+                    Stay Hydrated
+                </h2>
+
+            </div>
+
+
+            <div class="water-grid">
+
+
+                <div class="water-card">
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            💧 Drink Regularly
+                        </h3>
+
+                        <p>
+                            Spread your fluid intake throughout the day
+                            instead of drinking a very large amount at once.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            🏃 Exercise
+                        </h3>
+
+                        <p>
+                            Increase your fluid intake when you sweat more,
+                            exercise longer or train in hot weather.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="water-card">
+
+                    <div class="water-card-content">
+
+                        <h3>
+                            ☀️ Hot Weather
+                        </h3>
+
+                        <p>
+                            Hot and humid conditions can increase fluid losses,
+                            so pay attention to thirst and sweating.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

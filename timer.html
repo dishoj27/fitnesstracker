@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Workout Timer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+        <a href="timer.html" class="active">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html">
+            📅
+           <span>Planner</span>
+         </a>
+
+        <a href="nutrition.html">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+        <a href="water.html">
+            💧
+            <span>Water</span>
+        </a>
+
+        <a href="progress.html">
+            📊
+            <span>Progress</span>
+        </a>
+
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<main class="dashboard-main">
+
+
+    <header class="dashboard-header">
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <span class="dashboard-date">
+            WORKOUT TIMER
+        </span>
+
+    </header>
+
+
+    <section class="page-heading">
+
+        <span>
+            STAY ACTIVE
+        </span>
+
+        <h1>
+            Workout Timer
+        </h1>
+
+        <p>
+            Time your workout and track your activity.
+        </p>
+
+    </section>
+
+
+    <section class="timer-page">
+
+
+        <div class="timer-card-main">
+
+            <span class="timer-status">
+                WORKOUT TIMER
+            </span>
+
+
+            <div class="timer-display">
+
+                <span id="timerMinutes">
+                    00
+                </span>
+
+                <span>
+                    :
+                </span>
+
+                <span id="timerSeconds">
+                    00
+                </span>
+
+            </div>
+
+
+            <p>
+                Minutes : Seconds
+            </p>
+
+
+            <div class="timer-presets">
+
+                <button onclick="setTimer(1)">
+                    1 Min
+                </button>
+
+                <button onclick="setTimer(5)">
+                    5 Min
+                </button>
+
+                <button onclick="setTimer(10)">
+                    10 Min
+                </button>
+
+                <button onclick="setTimer(30)">
+                    30 Min
+                </button>
+
+            </div>
+
+
+            <div class="timer-controls">
+
+                <button
+                    class="timer-start"
+                    onclick="startTimer()">
+
+                    ▶ Start
+
+                </button>
+
+
+                <button
+                    class="timer-pause"
+                    onclick="pauseTimer()">
+
+                    ❚❚ Pause
+
+                </button>
+
+
+                <button
+                    class="timer-reset"
+                    onclick="resetTimer()">
+
+                    ↻ Reset
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="timer-side">
+
+            <div>
+                🔥
+                <strong>
+                    Stay Consistent
+                </strong>
+
+                <p>
+                    Regular activity helps you
+                    reach your fitness goals.
+                </p>
+            </div>
+
+
+            <div>
+                💪
+                <strong>
+                    Push Yourself
+                </strong>
+
+                <p>
+                    Stay focused throughout
+                    your workout.
+                </p>
+            </div>
+
+
+            <div>
+                💧
+                <strong>
+                    Stay Hydrated
+                </strong>
+
+                <p>
+                    Remember to drink water
+                    during your workout.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

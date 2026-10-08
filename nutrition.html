@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Nutrition</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .nutrition-container {
+            margin-top: 30px;
+        }
+
+        .nutrition-intro {
+            background: white;
+            border: 1px solid #e1e8e4;
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+
+        .nutrition-intro h2 {
+            margin-top: 0;
+        }
+
+        .protein-box {
+            background: #e8f7f0;
+            border-radius: 14px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .protein-box h3 {
+            color: #15945a;
+            margin-top: 0;
+        }
+
+        .food-section {
+            margin-bottom: 40px;
+        }
+
+        .food-section-title {
+            margin-bottom: 20px;
+        }
+
+        .food-section-title span {
+            color: #15945a;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .food-section-title h2 {
+            margin-top: 8px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .food-card {
+            background: white;
+            border: 1px solid #e1e8e4;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .food-content {
+            padding: 18px;
+        }
+
+        .food-content h3 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+        .food-content p {
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        .food-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #eeeeee;
+            font-size: 14px;
+        }
+
+        .protein {
+            color: #15945a;
+            font-weight: bold;
+        }
+
+        .portion {
+            color: #555;
+        }
+
+        .daily-meals {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .meal-box {
+            background: white;
+            border: 1px solid #e1e8e4;
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .meal-box h3 {
+            margin-top: 0;
+        }
+
+        .meal-box p {
+            color: #718096;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1000px) {
+            .food-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .daily-meals {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .food-grid,
+            .daily-meals {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="dashboard-page">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="dashboard-logo">
+        ✦ FitTrack
+    </div>
+
+    <nav class="side-nav">
+
+        <a href="dashboard.html">
+            🏠
+            <span>Dashboard</span>
+        </a>
+
+        <a href="workouts.html">
+            🏋️
+            <span>Workouts</span>
+        </a>
+
+        <a href="timer.html">
+            ⏱️
+            <span>Workout Timer</span>
+        </a>
+
+        <a href="planner.html">
+            📅
+            <span>Planner</span>
+        </a>
+
+        <a href="nutrition.html" class="active">
+            🥗
+            <span>Nutrition</span>
+        </a>
+
+        <a href="water.html">
+            💧
+            <span>Water</span>
+        </a>
+
+        <a href="progress.html">
+            📊
+            <span>Progress</span>
+        </a>
+
+        <a href="goals.html">
+            🎯
+            <span>Goals</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="#">
+            ⚙️
+            <span>Settings</span>
+        </a>
+
+        <button onclick="logoutUser()">
+            ↪️
+            <span>Logout</span>
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="dashboard-main">
+
+    <header class="dashboard-header">
+
+        <button
+            class="mobile-menu"
+            onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <span class="dashboard-date">
+            NUTRITION
+        </span>
+
+    </header>
+
+
+    <section class="page-heading">
+
+        <span>EAT SMART</span>
+
+        <h1>Nutrition</h1>
+
+        <p>
+            Eat balanced meals and get enough protein to support your fitness goals.
+        </p>
+
+    </section>
+
+
+    <section class="nutrition-container">
+
+
+        <!-- PROTEIN GUIDE -->
+
+        <div class="nutrition-intro">
+
+            <h2>💪 How Much Protein Do You Need?</h2>
+
+            <p>
+                A general fitness range is about
+                <strong>1.2–2.0 g of protein per kg</strong>
+                of body weight per day.
+            </p>
+
+            <div class="protein-box">
+
+                <h3>Example</h3>
+
+                <p>
+                    If your body weight is <strong>60 kg</strong>:
+                </p>
+
+                <p>
+                    60 × 1.2 = <strong>72 g</strong> protein/day
+                </p>
+
+                <p>
+                    60 × 2.0 = <strong>120 g</strong> protein/day
+                </p>
+
+                <strong>
+                    Suggested range: 72–120 g/day
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- BREAKFAST -->
+
+        <section class="food-section">
+
+            <div class="food-section-title">
+
+                <span>🌅 BREAKFAST</span>
+
+                <h2>Start Your Day With Protein</h2>
+
+            </div>
+
+
+            <div class="food-grid">
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80"
+                        alt="Egg breakfast">
+
+                    <div class="food-content">
+
+                        <h3>Eggs</h3>
+
+                        <p>
+                            A simple protein-rich breakfast option.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                3 eggs
+                            </span>
+
+                            <span class="protein">
+                                ~19 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80"
+                        alt="Greek yogurt">
+
+                    <div class="food-content">
+
+                        <h3>Greek Yogurt</h3>
+
+                        <p>
+                            Good option for breakfast or a snack.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                200 g
+                            </span>
+
+                            <span class="protein">
+                                ~20 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80"
+                        alt="Oats">
+
+                    <div class="food-content">
+
+                        <h3>Oats + Milk</h3>
+
+                        <p>
+                            Combine oats with milk and fruit for a balanced meal.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                1 bowl
+                            </span>
+
+                            <span class="protein">
+                                ~15 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LUNCH -->
+
+        <section class="food-section">
+
+            <div class="food-section-title">
+
+                <span>☀️ LUNCH</span>
+
+                <h2>Balanced Lunch</h2>
+
+            </div>
+
+
+            <div class="food-grid">
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80"
+                        alt="Chicken rice meal">
+
+                    <div class="food-content">
+
+                        <h3>Chicken + Rice</h3>
+
+                        <p>
+                            Combine lean chicken with rice and vegetables.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                150 g chicken
+                            </span>
+
+                            <span class="protein">
+                                ~45 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                        alt="Vegetable salad">
+
+                    <div class="food-content">
+
+                        <h3>Paneer Salad</h3>
+
+                        <p>
+                            Paneer with vegetables provides protein and nutrients.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                100 g paneer
+                            </span>
+
+                            <span class="protein">
+                                ~18 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                        alt="Dal meal">
+
+                    <div class="food-content">
+
+                        <h3>Dal + Rice</h3>
+
+                        <p>
+                            A simple vegetarian meal with carbohydrates and protein.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                1 bowl dal
+                            </span>
+
+                            <span class="protein">
+                                ~12 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HIGH PROTEIN SNACKS -->
+
+        <section class="food-section">
+
+            <div class="food-section-title">
+
+                <span>🍎 SNACKS</span>
+
+                <h2>High-Protein Snacks</h2>
+
+            </div>
+
+
+            <div class="food-grid">
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=800&q=80"
+                        alt="Peanuts">
+
+                    <div class="food-content">
+
+                        <h3>Peanuts</h3>
+
+                        <p>
+                            Easy snack option with protein and healthy fats.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                30 g
+                            </span>
+
+                            <span class="protein">
+                                ~7 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476e?auto=format&fit=crop&w=800&q=80"
+                        alt="Protein snack">
+
+                    <div class="food-content">
+
+                        <h3>Milk</h3>
+
+                        <p>
+                            Convenient drink that contributes protein to your diet.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                250 ml
+                            </span>
+
+                            <span class="protein">
+                                ~8 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80"
+                        alt="Banana and peanut butter">
+
+                    <div class="food-content">
+
+                        <h3>Peanut Butter + Banana</h3>
+
+                        <p>
+                            A convenient snack before or after training.
+                        </p>
+
+                        <div class="food-info">
+
+                            <span class="portion">
+                                2 tbsp peanut butter
+                            </span>
+
+                            <span class="protein">
+                                ~8 g protein
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DAILY PLAN -->
+
+        <section class="food-section">
+
+            <div class="food-section-title">
+
+                <span>📋 DAILY PLAN</span>
+
+                <h2>Simple Daily Meal Schedule</h2>
+
+            </div>
+
+
+            <div class="daily-meals">
+
+                <div class="meal-box">
+
+                    <h3>🌅 Breakfast</h3>
+
+                    <p>
+                        3 eggs + oats + milk + fruit
+                    </p>
+
+                </div>
+
+
+                <div class="meal-box">
+
+                    <h3>☀️ Lunch</h3>
+
+                    <p>
+                        Chicken/paneer + rice + vegetables
+                    </p>
+
+                </div>
+
+
+                <div class="meal-box">
+
+                    <h3>🍎 Snack</h3>
+
+                    <p>
+                        Greek yogurt + peanuts + fruit
+                    </p>
+
+                </div>
+
+
+                <div class="meal-box">
+
+                    <h3>🌙 Dinner</h3>
+
+                    <p>
+                        Dal/paneer/chicken + vegetables + rice/roti
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
